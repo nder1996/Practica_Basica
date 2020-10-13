@@ -1,30 +1,21 @@
+import string
 import re
 import os
-import string
+
+
+Letra = "Andersons                hola";
+ 
+
+
+def Q_Espacio(Letra):  
+   L1 = Letra.find(" ")+1
+   L2 = (Letra.count(" ")+L1)-1
+   if Letra.count(" ")>1:
+      N1 = Letra[0:L1]; N2 = Letra[L2:len(Letra)]
+      Letra=""; 
+      Letra = N1+N2
+   return Letra
 
 
 
-def TData(Votante,i,a,List,data,j):
-  for j in range(4):
-      while Votante[i]!="-":
-           if i>=a:
-              data=data+Votante[i]
-           i+=1
-      if Votante[i]=="-":
-          print("VOTANTE : ",data)
-          List.append(data)
-          data=""
-          a = a+1 ; i = i+5
-    
-      
-
-
-
-
-
-D_Votante = "['1236547000-', '123498007-', 'AREVALOKK MPOLL-', 'ANDERSONS-']" ; List=[]
-
-TData(D_Votante,0,2,List,"",0)
-
-
-
+print("Data : ",Q_Espacio(Letra)) 

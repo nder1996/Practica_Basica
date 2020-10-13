@@ -54,3 +54,52 @@ print(removed)
 
 
 
+
+def TData(Votante,i,a,List,data,j):
+  for j in range(4):
+      while Votante[i]!="-":
+           if i>=a:
+              data=data+Votante[i]
+           i+=1
+      if Votante[i]=="-":
+          print("VOTANTE : ",data)
+          List.append(data)
+          data=""
+          a = a+1 ; i = i+5
+    
+      
+
+
+
+
+
+
+D_Votante"['1236547000-', '123498007-', 'AREVALOKK MPOLL-', 'ANDERSONS-']" ; List=[]
+
+TData(D_Votante,0,2,List,"",0)
+
+
+
+
+import re
+import os
+import string
+
+Busq1 = ""; 
+
+nombre1 = "ANDERSONS[123456"
+nombre2 = "123455667"
+Busq1   = re.search(r"[\A-Za-z]",nombre1) 
+
+if Busq1!=None:
+      print("LETRA")
+else:
+      print("NUMERO")
+
+
+      linea=""
+      """
+      for linea in DatosL.readlines():
+         TData(linea,"",0,2,0)
+      DatosV.close() 
+      """
