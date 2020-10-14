@@ -1,31 +1,31 @@
+
 import string
 import re
 import os
 import sys
 
 
-V1 = ""; V2 = "";k=0;Votantes=[];
 
-V1    = open("Prueba.txt","r") 
-V2 = V1.readlines()
-V1.close() 
-   
+V1 = "" ; V2 = "" ; k=0 ; linea=""
+Votantes=[]
+Data = ""
 
-while k<=len(V2):
-    Datos=""; Com =""; i=0 ;j=0
-    Datos = V2[0]
-    while i<=2:
-       while Datos[j]!="-":
-          Com = Com + Datos[j]
-          j+=1
-       Com = Com.replace(" ","")
-       Votantes.append(Com)
-       Com="";i+=1;j+=1
-    if len(Votantes)%3==0:
-       Com = ""
-       Com = Datos[j:Datos.find("*")]
-       Com = Com.replace(" ","")
-       Votantes.append(Com)
-    k+=1  
+
+
+V1 = open("Prueba.txt",'r')
+for linea in V1.read():   
+   if linea!="-" or linea!="\n" or linea!=" ":
+      if (re.search( "[A-Za-z]",linea)!=None) or (linea.isnumeric()==True):
+           Data = Data + linea
+   if linea==" ":
+           Votantes.append(Data)
+           Data = ""
+
+           
+
  
-print("Actualizacion : ",Votantes)  
+ 
+print("->",Votantes) 
+#print("----",linea) 
+V1.close()
+   
