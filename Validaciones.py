@@ -1,21 +1,25 @@
 import string
 import re
 import os
+import sys
 
 
-Letra = "Andersons                hola";
+
+V = "" ; Votantes=[] ; Datos = "" ;i=0;j=0;Com=""
+V    = open("Prueba.txt","r") 
+Data = V.readlines()
+Votantes.close() 
+   
+
+
+Datos = V[0]
+
+while Datos[i]!="*": 
+  while Datos[j]!="-":
+      Com = Com + Datos[j]
+      j+=1
+  Votantes.append(Com)
+  Com=""  
+
  
-
-
-def Q_Espacio(Letra):  
-   L1 = Letra.find(" ")+1
-   L2 = (Letra.count(" ")+L1)-1
-   if Letra.count(" ")>1:
-      N1 = Letra[0:L1]; N2 = Letra[L2:len(Letra)]
-      Letra=""; 
-      Letra = N1+N2
-   return Letra
-
-
-
-print("Data : ",Q_Espacio(Letra)) 
+print("Actualizacion : ",D_V)  
