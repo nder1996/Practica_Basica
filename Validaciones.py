@@ -7,7 +7,8 @@ import sys
 
 
 V1 = "" ; V2 = "" ; k=0 ; linea=""
-Votantes=[]
+V_T=[] ; Votantes=[]
+
 Data = ""
 
 
@@ -18,8 +19,9 @@ for linea in V1.read():
       if (re.search( "[A-Za-z]",linea)!=None) or (linea.isnumeric()==True):
            Data = Data + linea
    if linea==" ":
-           Votantes.append(Data)
-           Data = ""
+          if Data!="":
+             Votantes.append(Data)
+             Data = ""
 
            
 
