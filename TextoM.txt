@@ -449,7 +449,19 @@ V1.close()
    
    
    
-   
+      i = 0 ; j = 0 ; Datos_V = []  
+    Datos_V = Inv_BaseD(Datos_V)
+    print("VALOR DE LEN : ",len(Datos_V) )
+    while i<len(Datos_V):
+     if i!=2+j and i!=3+j and i<=4+j:
+         #Votantes.append(Datos_V[i+j])
+         print("[",i,"]",Datos_V[i+j])
+     if i==2+j:
+         #Votantes.append(Datos_V[2+j]+" "+Datos_V[3+j])
+         print("[i+2] ",Datos_V[2+j]+" "+Datos_V[3+j])
+     if i==4+j:
+           j+=5;
+     i+=1
    
    
    

@@ -19,29 +19,32 @@ def Inv_BaseD(Lista):
             if Data!="":
                Lista.append(Data)
                Data = ""
+        if linea=="*":
+           Lista.append("*") 
     V1.close()
     return Lista
 
 def Dicc_BaseD():
-    i = 0 ; j = 0 ; Datos_V = [] ; 
+    i = 0 ; j = 0 ; Datos_V = []  ; Data =""
     Datos_V = Inv_BaseD(Datos_V)
-    while i<=len(Datos_V)-1:
-     if i!=2+j and i!=3+j and i<=4+j:
-         Votantes.append(Datos_V[i+j])
-         print("[i+j] ",Datos_V[i+j])
-     if i==2+j:
-         Votantes.append(Datos_V[2+j]+" "+Datos_V[3+j])
-         print("[i+2] ",Datos_V[2+j]+" "+Datos_V[3+j])
-     if i==5+j:
-           j+=6;
-     i+=1
+    for i in Datos_V:
+        if i == "*":
+            j = 0
+        else:
+            if j!=2 or j!=3:
+               Datos_V.append(i)
+            if j==2 and j==3:
+               V1 = V1 +" "+ i
+               if j==3:
+                  Datos_V.append(V1)             
+        j+=1
 
 
 os.system ("cls")
 
 Dicc_BaseD()
 
-#print(" ",Votantes)    
+print(" ",Votantes)    
     
     
     
