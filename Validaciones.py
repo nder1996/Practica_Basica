@@ -29,26 +29,19 @@ def Dicc_BaseD():
     Datos_V = []; Data = ""; Datos_V = Inv_BaseD(Datos_V)
     for i in Datos_V:
       if i != "*" and j!=2 and j!=3:
-         print(i)
+        # print("i -> ",i)
       elif j==2 or j==3:
-        Data = Data +" "+i
-        if j==3:
-           Data = Data.replace(" ","")
-           print(Data)
-           Data=""
+           if j==2:
+               Data = i +" "
+           if j==3:
+              Data = Data + i
+              #print("j -> ",Data)
+              Data=""
       if i=="*":
          j=-1
       j+=1      
            
-"""
-    if j>2 or j==3: 
-       Data = Data+" "+i
-       if j==3:
-          print("DATA : ",Data)
-    if i=="*":
-       j=0
-    j+=1
-"""
+
 os.system ("cls")
 
 
