@@ -1,47 +1,48 @@
-
 import string
 import re
 import os
 import sys
 
 
+V1      = ""
+Votantes= []
 
-V1 = "" ; V2 = "" ; k=0 ; linea="" ; i=0 ; j=0
-Votante=[] ; Com_Votantes=[]
+D1_Votantes = dict();
 
-Data = ""
+def Inv_BaseD(Lista):  
+    V1 = open("Prueba.txt",'r');Data="";linea=""
+    for linea in V1.read():   
+        if linea!="-" or linea!="\n" or linea!=" ":
+            if (re.search( "[A-Za-z]",linea)!=None) or (linea.isnumeric()==True):
+               Data = Data + linea
+        if linea==" ":
+            if Data!="":
+               Lista.append(Data)
+               Data = ""
+    V1.close()
+    return Lista
 
-
-
-V1 = open("Prueba.txt",'r')
-
-for linea in V1.read():   
-   if linea!="-" or linea!="\n" or linea!=" ":
-      if (re.search( "[A-Za-z]",linea)!=None) or (linea.isnumeric()==True):
-           Data = Data + linea
-   if linea==" ":
-          if Data!="":
-             Com_Votantes.append(Data)
-             Data = ""
-   if linea=="*":
-      Com_Votantes.append("*")
-
-V1.close()
-
-os.system ("cls")
-
-while i<=len(Com_Votantes)-1:
-     print("Votantes{I} : ",Com_Votantes[i])
+def Dicc_BaseD():
+    i = 0 ; j = 0 ; Datos_V = [] ; 
+    Datos_V = Inv_BaseD(Datos_V)
+    while i<=len(Datos_V)-1:
      if i!=2+j and i!=3+j and i<=4+j:
-         Votante.append(Com_Votantes[i+j])
+         Votantes.append(Datos_V[i+j])
+         print("[i+j] ",Datos_V[i+j])
      if i==2+j:
-         Votante.append(Com_Votantes[2+j]+" "+Com_Votantes[3+j])
-     if i==5: 
+         Votantes.append(Datos_V[2+j]+" "+Datos_V[3+j])
+         print("[i+2] ",Datos_V[2+j]+" "+Datos_V[3+j])
+     if i==5+j:
            j+=6;
      i+=1
 
- 
-print("->",Votante)
-#print("----",linea) 
-V1.close()
-   
+
+os.system ("cls")
+
+Dicc_BaseD()
+
+#print(" ",Votantes)    
+    
+    
+    
+
