@@ -8,6 +8,9 @@ import sys
 
 D1_Votantes = dict();
 
+
+
+
 def Inv_BaseD(Lista):  
     V1= "";Data="";linea=""; V1 = open("Prueba.txt",'r');
     for linea in V1.read():   
@@ -41,23 +44,27 @@ def BaseD_L():
       j+=1
     return Votantes      
  
+    
 def BaseD_Dicc():
-    Data = ""  ; Data = BaseD_L() ; a = 0 ; b = 4
-    for i in range(int(len(Data)/4)):
-       #print("Cedula : ",Data[i+a],"Inf : ",Data[a+1:b])
-       D1_Votantes[Data[i+a]] = Data[a+1:b]
-       a+= 4 ; b+=4 
+    Data = ""  ; Data = BaseD_L() ; a = 0 ; b = 1 ; c = 4
+    os.system ("cls") 
+    for i in range(int(len(Data)/3)-1):
+       a=i*4;  
+       print("Cedula : ",Data[a]," Inf -> ",Data[a+1:a+4])
+       #D1_Votantes[Data[i+a]] = Data[a+1:b]
        
        
        
-BaseD_Dicc()       
+BaseD_Dicc()
 
-os.system ("cls")
+#print(BaseD_L())
+
+#for i in D1_Votantes:
+#    print ("Cedula : ",i, 'Datos - Inf -> : ', D1_Votantes[i])
+
+
+
        
-for clave in D1_Votantes:
-    print(clave)       
-       
-            
 
 
 
