@@ -4,13 +4,12 @@ import os
 import sys
 
 
-V1      = ""
-Votantes= []
+
 
 D1_Votantes = dict();
 
 def Inv_BaseD(Lista):  
-    V1 = open("Prueba.txt",'r');Data="";linea=""
+    V1= "";Data="";linea=""; V1 = open("Prueba.txt",'r');
     for linea in V1.read():   
         if linea!="-" or linea!="\n" or linea!=" ":
             if (re.search( "[A-Za-z]",linea)!=None) or (linea.isnumeric()==True):
@@ -24,29 +23,44 @@ def Inv_BaseD(Lista):
     V1.close()
     return Lista
 
-def Dicc_BaseD():
+def BaseD_L():
     i = None; j = 0
-    Datos_V = []; Data = ""; Datos_V = Inv_BaseD(Datos_V)
+    Datos_V = []; Data = ""; Datos_V = Inv_BaseD(Datos_V) ; Votantes=[]
     for i in Datos_V:
       if i != "*" and j!=2 and j!=3:
-        # print("i -> ",i)
+          Votantes.append(i)
       elif j==2 or j==3:
            if j==2:
                Data = i +" "
            if j==3:
               Data = Data + i
-              #print("j -> ",Data)
+              Votantes.append(Data)
               Data=""
       if i=="*":
          j=-1
-      j+=1      
-           
+      j+=1
+    return Votantes      
+ 
+def BaseD_Dicc():
+    Data = ""  ; Data = BaseD_L() ; a = 0 ; b = 4
+    for i in range(int(len(Data)/4)):
+       #print("Cedula : ",Data[i+a],"Inf : ",Data[a+1:b])
+       D1_Votantes[Data[i+a]] = Data[a+1:b]
+       a+= 4 ; b+=4 
+       
+       
+       
+BaseD_Dicc()       
 
 os.system ("cls")
+       
+for clave in D1_Votantes:
+    print(clave)       
+       
+            
 
 
 
-Dicc_BaseD()
 
   
     
